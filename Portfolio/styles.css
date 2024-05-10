@@ -33,3 +33,81 @@ nav a:hover {
 main {
     padding: 20px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto 20px; /* Increased top margin */
+    padding: 80px;
+}
+
+h1 {
+    margin-bottom: 40px; /* Added bottom margin to h1 */
+}
+
+.project-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px; /* Increased bottom margin */
+}
+
+.project-box {
+    flex: 1;
+    background-color: rgba(169, 169, 169, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-right: 20px; /* Added right margin */
+}
+
+.project-image {
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+    height: auto;
+}
+
+.single-project {
+    display: block;
+    background-color: rgba(169, 169, 169, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 90%;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.3s;
+}
+
+.single-project:hover {
+    background-color: rgba(169, 169, 169, 0.7);
+}
+
+
+.project-details {
+    display: flex;
+    align-items: center;
+}
+
+.project-info {
+    flex: 1;
+}
+
+.project-image {
+    margin-left: auto ;
+    max-width: 100%;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure the image stays within the box */
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
