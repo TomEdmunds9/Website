@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f2f2f2;
 }
 
 header {
@@ -34,27 +35,20 @@ main {
     padding: 20px;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-}
-
 .container {
     max-width: 1200px;
-    margin: 50px auto 20px; /* Increased top margin */
+    margin: 50px auto 20px;
     padding: 80px;
 }
 
 h1 {
-    margin-bottom: 40px; /* Added bottom margin to h1 */
+    margin-bottom: 40px;
 }
 
 .project-section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px; /* Increased bottom margin */
+    margin-bottom: 40px;
 }
 
 .project-box {
@@ -63,14 +57,56 @@ h1 {
     padding: 20px;
     border-radius: 5px;
     box-sizing: border-box;
-    margin-right: 20px; /* Added right margin */
+    margin-right: 20px;
+    margin-bottom: 50px;
+    position: relative; 
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
-.project-image {
-    display: block;
-    margin-top: 10px;
+.project-box:hover {
+    background-color: rgba(169, 169, 169, 0.7);
+}
+
+.project-info h2 {
+    flex: 1;
+    position: absolute;
+    margin-left: 50px; 
+    top: 0px;
+}
+
+.project-image1 {
+    max-width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute; 
+    bottom: -10px;       
+    right: 30px;        
+    width: 80px;
+    height: 80px;
+}
+
+.project-image2 {
+    max-width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute; 
+    bottom: 10px;       
+    right: 30px;        
     width: 100px;
     height: auto;
+}
+
+.project-image3 {
+    max-width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    position: absolute; 
+    bottom: 10px;       
+    right: 30px;        
+    width: 120px;
+    height: 30%;
 }
 
 .single-project {
@@ -83,31 +119,39 @@ h1 {
     text-decoration: none;
     color: inherit;
     transition: background-color 0.3s;
+    position: relative; 
+    margin-left: 5%;
+
 }
 
 .single-project:hover {
     background-color: rgba(169, 169, 169, 0.7);
 }
 
-
-.project-details {
+.single-project-details {
     display: flex;
     align-items: center;
+    margin-bottom: 30px;
 }
 
-.project-info {
+.single-project-info h2 {
     flex: 1;
+    position: absolute;
+    margin-left: 50px; 
+    top: 0px;
 }
 
-.project-image {
-    margin-left: auto ;
+.single-project-info p {
+    margin-top: 60px; 
+}
+
+.single-project-image4 {
     max-width: 100%;
     border-radius: 5px;
-    overflow: hidden; /* Ensure the image stays within the box */
-}
-
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    overflow: hidden;
+    position: absolute; 
+    top: 10px;       
+    left: 10px;        
+    width: 50px;
+    height: 50px;
 }
