@@ -13,7 +13,6 @@ header {
     align-items: center;
 }
 
-
 nav {
     background-color: #444;
     color: #fff;
@@ -31,9 +30,6 @@ nav a:hover {
     color: #ff6600;
 }
 
-
-
-
 .container {
     width: 80%;
     margin: 0 auto;
@@ -41,17 +37,19 @@ nav a:hover {
 
 .section {
     display: flex;
-    align-items: center;
-    margin: 20px 0;
+    flex-direction: column;
+    margin: 0px 0;
+}
+
+.first-section h1 {
+    margin: 0;
+    padding-top: 0;
+    align-items: flex-start; 
+    justify-content: flex-start;
 }
 
 .first-section {
     height: auto;
-}
-
-.portrait-image {
-    height: auto;
-    width: 40%;
 }
 
 .text-content {
@@ -59,14 +57,13 @@ nav a:hover {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+    
 }
 
 .title {
     text-align: center;
     margin: 0;
-    padding-top: 20px;
+    padding-top: 0;
 }
 
 .description {
@@ -75,45 +72,86 @@ nav a:hover {
     margin-top: 20px;
 }
 
-.shape-divider {
-    height: 100px;
-    margin: 40px 0;
+figcaption {
+    margin-top: 0px; /* Adds some space between the image and the caption */
+    font-size: 14px; /* Adjusts the font size of the caption */
+    color: #555; /* Changes the color of the caption text */
+    text-align: center; /* Centers the caption text */
 }
 
-
+.shape-divider {
+    height: 40px;
+    background-color: #f0f0f0;
+    margin: 0px 0;
+}
 
 .second-section {
     flex-direction: row;
-    background-color: #f0f0f0;
-    height: 400px;
+    align-items: flex-start; 
+    justify-content: flex-start;
+    height: auto;
     width: auto;
 } 
-.section-image, 
-.third-section .section-image {
-    flex-direction: row;
-    height: 300px;
-    width: auto;
+
+.second-section-image {
+    margin-top: 30px;
+    height: auto;
+    width: 450px;
+}
+
+.second-landscape-image {
+    width: 100%;
+    height: auto;
 }
 
 .third-section {
     flex-direction: row-reverse;
+    height: auto;
+    width: auto;
+    align-items: flex-start; 
+    justify-content: flex-start;
 }
+
+.third-section-image {
+    height: auto;
+    width: 450px;
+}
+
+.results .text-content {
+    text-align: start;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.result-left-image {
+    width: 100%;
+    height: auto;
+}
+.result-right-image {
+    width: 125%;
+    height: auto;
+}
+
 
 .section-title {
     font-size: 24px;
     font-weight: bold;
-    text-align: center;
+    text-align: start;
     margin-bottom: 20px;
 }
 
 .section-description, .additional-text {
     width: 100%;
     height: 100px;
-    margin: 20px 0;
+    margin: 0px 0;
 }
 
 .landscape-image {
     width: 100%;
     height: auto;
-    margin: 20px 0;
+    margin: 0px 0;
 }

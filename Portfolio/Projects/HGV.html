@@ -20,19 +20,23 @@
         <div class="container">
             <!-- First Section -->
             <section class="section first-section">
-                <img src="../Images/HGV/Locations_of_all.png" alt="Portrait Image" class="portrait-image">
+                
                 <div class="text-content">
                     <h1 class="title">Optimal HGV charging locations</h1>
                     <p> This project aimed to identify the key locations for HGV charging points along the British key motorways and A-roads, as 
                         well as propose a suggested quantity of installations to meet the requirements. <br><br>
                         
-                        This paper used the road freight 
+                        This project  used the road freight 
                         goods lifted dataset <a href="https://www.gov.uk/government/statistical-data-sets/rfs01-goods-lifted-and-distance-hauled">(RFS0123)</a> 
                         from gov.uk to weight the locations determined as key, to establish a priority list for the installation of HGV charging points.<br><br>
 
                         Plotting of the routes were formed via the use of the <a href="https://developers.google.com/maps/documentation/directions/overview">Google Maps API.</a> <br><br>
 
-                        The results could inform policymakers about the strategic investments required to support the electrification of HGV fleets.  </p>
+                        The results could inform policymakers about the strategic investments required to support the electrification of HGV fleets. <br><br>
+
+                        Note: This is a highly condensed form of the project, If you are interested I will happily talk about it in more detail. I have not fully explained the assumptions, but they are well grounded.
+                    
+                    </p>
                 </div>
             </section>
     
@@ -41,25 +45,130 @@
     
             <!-- Second Section -->
             <section class="section second-section">
-                <img src="image2.jpg" alt="Section Image" class="section-image">
+                <figure>
+                    <img src="/Images/HGV/Locations_of_all.png" alt="Portrait Image" class="second-section-image">
+                    <figcaption> Figure 1 <br> Locations of all the motorway services in British along key motorways and A-roads with .</figcaption>
+                </figure>
+                
                 <div class="text-content">
-                    <h2 class="section-title">Section Title 1</h2>
-                    <p>Hi this is where my text goes</p>
-                    <img src="landscape1.jpg" alt="Landscape Image" class="landscape-image">
-                    <textarea class="additional-text" placeholder="More text..."></textarea>
+                    <h2 class="section-title">Exploratory Data Analytics</h2>
+                    <p>
+                        My first step in the project was to collect and explore the data. To do this a series of graphs were made to visualise the data gathered<br><br>
+                        
+                        The locations from road freight goods lifted dataset represent the origin/destination for all trips in this model. To view this, I 
+                        used the Google maps api to get locational data for each location and then plotted them on a map. <br><br>
+
+                        Using the API the name and locations of all service stations was also gathered and then plotted over the Highway road map from OSMnx, 
+                        as shown in <strong> Figure 1</strong>. <br><br>
+                        
+
+                        <strong> Figure 2</strong> below shows the distance goods are hauled across the UK. As expected most goods are moved within the region, in 
+                        short trips. Giving the large value for Zero. Excluding that there is a slightly skewed distribution with a mode around 150km
+                    </p>
+                    <figure>
+                        <img src="/Images/HGV/distance_travelled.png" alt="Landscape Image" class="second-landscape-image">
+                        <figcaption>Figure 2 <br>Distribution of goods lifted and distance hauled across the UK.</figcaption>
+                    </figure>
+                    
+                    <p> <strong> Figure 3</strong> shows the weight of goods moved between origin and destination, also showing the possible routes that could be modelled. 
+                        It shows the while most goods are moved within the region, there are a few regions trading heavily with one another. <br><br>
+
+                                                
+                        The matrix is not symmetrical, with some regions recieving more goods than shipping and vice versa.
+                        
+                    </p>
+
+                    
                 </div>
             </section>
-    
+            
+        
+
             <!-- Third Section -->
             <section class="section third-section">
                 <div class="text-content">
-                    <h2 class="section-title">Section Title 2</h2>
-                    <textarea class="section-description" placeholder="Enter section description here..."></textarea>
-                    <img src="landscape2.jpg" alt="Landscape Image" class="landscape-image">
-                    <textarea class="additional-text" placeholder="More text..."></textarea>
+                    <p> This matrix will be used to weight the final results. By using the weight of good travelled, we can estimate the number of trips. 
+                        From number of trips (and stopping points used), I can determine the priority locations for HGV charging points. <br><br>
+
+                        To model the movement of goods across the UK, I used the Google Maps API to plot the routes between the origin and destination 
+                        of the goods lifted. This returned the distance and time taken to travel between the two points. <br><br>
+                        
+                        Most return journeys, from origin to destination, will require a charge. However, 26% of journeys are too short 
+                        and a further 3% were too far to be done with one charge alone.  <br><br>
+
+                        Using the time taken to travel between the two points, I can remove all the trips that don't require a charge. 
+                        When plotted on a map, <strong> Figure 4</strong> is created. This shows the locations most imporatant for HGV travel. 
+                    </p>
+
+                    
                 </div>
-                <img src="image3.jpg" alt="Section Image" class="section-image">
+                <figure>
+                    <img src="/Images/HGV/Weighting_matrix.png" alt="Portrait Image" class="third-section-image">
+                    <figcaption> Figure 3 <br> The weighting matric applied to the Model.</figcaption>
+                </figure>
+            
+                
+            
             </section>
+            <!-- Third Section part 2 -->
+            <section class="section third-section">
+                
+                <div class="text-content">
+                    <h2 class="section-title"><br>Method</h2>
+                    <p>
+                       The model was constructed as a combination of a series of scenarios: <br><br>
+                        
+                       <ol>
+                        <li>One way route, starting fully charged and charging once on route</li>
+                        <li>Return journey starting fully charged and returning with one charge</li>
+                        <li>Return journey starting fully charged and returning with 2 charges at the same station</li>
+                    </ol>
+                    <figure>
+                        <img src="/Images/HGV/final_matrix.png" alt="Landscape Image" class="second-landscape-image">
+                        <figcaption>Figure 5 <br>Matrix showing the routes modelled, red was if it was too long to be done with just one station.</figcaption>
+                    </figure>
+                    <br>
+                    The reason only one station was modelled, was due to complexity of the model. Running with multiple stations would have significantly increased 
+                    the time taken to run the model, for little impact due to the lack of trade between the missing locations. <br><br>
+                        
+
+                    </p>
+                </div>
+                <figure>
+                    <img src="/Images/HGV/Scaled_image.png" alt="Portrait Image" class="third-section-image">
+                    <figcaption>Figure 4 <br> Note: This image only shows movement of goods where the HGV would require a charge.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Shape Divider -->
+            <div class="shape-divider"></div>
+
+            
+            <section class="results section">
+                <div class="text-content">
+                    <h1 class="title">Results</h1>
+                    <div class="image-container">
+                        <figure>
+                            <img src="/Images/HGV/final_bar.png" alt="Portrait Image" class="result-left-image">
+                            <figcaption>Figure 4 <br> Number of HGV stopping to charge at peak times.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/Images/HGV/final_graph.png" alt="Portrait Image" class="result-right-image">
+                            <figcaption>Figure 5 <br> Note: This image only shows movement of goods where the HGV would require a charge.</figcaption>
+                        </figure>
+                    </div>
+                    <p>
+                        These results clearly indicate the key locations for HGV charging points. Should every HGV be replaced with eHGV's, The locations with the highest demand
+                         at peak hour are shown in <strong>Figure 4</strong>. A graph showing their geographical position <strong>Figure 5</strong> was created, to ease comprehension. <br><br>
+
+                         To improve this model, a larger dataset would be required. This time showing the orgin/destination in higher resolution. This could be paired with a forecast
+                        of future freight movement, to produce a model that would definitively calculate the optimal locations. <br><br>,
+                        
+                        
+                        </p>
+                </div>
+            </section>
+            
     </main>
 </body>
 </html>
