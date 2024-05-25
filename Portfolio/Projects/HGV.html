@@ -58,7 +58,71 @@
                     <img src="landscape2.jpg" alt="Landscape Image" class="landscape-image">
                     <textarea class="additional-text" placeholder="More text..."></textarea>
                 </div>
-                <img src="image3.jpg" alt="Section Image" class="section-image">
+                <figure>
+                    <img src="/Images/HGV/Weighting_matrix.png" alt="Portrait Image" class="third-section-image">
+                    <figcaption> Figure 3 <br> The weighting matric applied to the Model.</figcaption>
+                </figure>
+            
+                
+            
+            </section>
+            <!-- Third Section part 2 -->
+            <section class="section third-section">
+                
+                <div class="text-content">
+                    <h2 class="section-title"><br>Method</h2>
+                    <p>
+                       The model was constructed as a combination of a series of scenarios: <br><br>
+                        
+                       <ol>
+                        <li>One way route, starting fully charged and charging once on route</li>
+                        <li>Return journey starting fully charged and returning with one charge</li>
+                        <li>Return journey starting fully charged and returning with 2 charges at the same station</li>
+                    </ol>
+                    <figure>
+                        <img src="/Images/HGV/final_matrix.png" alt="Landscape Image" class="second-landscape-image">
+                        <figcaption>Figure 5 <br>Matrix showing the routes modelled, red was if it was too long to be done with just one station.</figcaption>
+                    </figure>
+                    <br>
+                    The reason only one station was modelled, was due to complexity of the model. Running with multiple stations would have significantly increased 
+                    the time taken to run the model, for little impact due to the lack of trade between the missing locations. <br><br>
+                        
+
+                    </p>
+                </div>
+                <figure>
+                    <img src="/Images/HGV/Scaled_image.png" alt="Portrait Image" class="third-section-image">
+                    <figcaption>Figure 4 <br> Note: This image only shows movement of goods where the HGV would require a charge.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Shape Divider -->
+            <div class="shape-divider"></div>
+
+            
+            <section class="results section">
+                <div class="text-content">
+                    <h1 class="title">Results</h1>
+                    <div class="image-container">
+                        <figure>
+                            <img src="/Images/HGV/final_bar.png" alt="Portrait Image" class="result-left-image">
+                            <figcaption>Figure 4 <br> Number of HGV stopping to charge at peak times.</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/Images/HGV/final_graph.png" alt="Portrait Image" class="result-right-image">
+                            <figcaption>Figure 5 <br> Note: This image only shows movement of goods where the HGV would require a charge.</figcaption>
+                        </figure>
+                    </div>
+                    <p>
+                        These results clearly indicate the key locations for HGV charging points. Should every HGV be replaced with eHGV's, The locations with the highest demand
+                         at peak hour are shown in <strong>Figure 4</strong>. A graph showing their geographical position <strong>Figure 5</strong> was created, to ease comprehension. <br><br>
+
+                         To improve this model, a larger dataset would be required. This time showing the orgin/destination in higher resolution. This could be paired with a forecast
+                        of future freight movement, to produce a model that would definitively calculate the optimal locations. <br><br>,
+                        
+                        
+                        </p>
+                </div>
             </section>
     </main>
 </body>
