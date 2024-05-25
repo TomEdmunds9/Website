@@ -100,7 +100,7 @@ figcaption {
 }
 
 .second-landscape-image {
-    width: 80%;
+    width: 100%;
     height: auto;
 }
 
@@ -132,7 +132,7 @@ figcaption {
     height: auto;
 }
 .result-right-image {
-    width: 125%;
+    width: 150%;
     height: auto;
 }
 
@@ -151,7 +151,7 @@ figcaption {
 }
 
 .landscape-image {
-    width: 100%;
+    width: 130%;
     height: auto;
     margin: 0px 0;
 }
