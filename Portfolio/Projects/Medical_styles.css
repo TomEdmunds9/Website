@@ -198,3 +198,24 @@ code .function {
 code .variable {
     color: #f8f8f2; /* Default text color */
 }
+.result-image1 {
+    width: 90%;
+    height: auto;
+    margin: 0;
+    margin-left: 5%;
+    margin-top: -3%;
+    display: block;
+}
+
+.result-image {
+    width: 60%;
+    height: auto;
+    margin: 5px auto;
+    display: block;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+}

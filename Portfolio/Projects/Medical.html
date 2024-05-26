@@ -63,7 +63,7 @@
                         So I added a table, specifying the data types for each column, and the starting and ending properties needed. This code when run fixed the missing value problem. 
 
                     </p>
-                    <pre><code>
+                        <pre><code>
     <span class="keyword">CREATE EXTERNAL TABLE</span> medicaldatabase1.medical_table (
         name <span class="keyword">STRING</span>,
         age <span class="keyword">BIGINT</span>,
@@ -92,7 +92,7 @@
         <span class="string">'has_encrypted_data'</span>=<span class="string">'false'</span>,
         <span class="string">'skip.header.line.count'</span>=<span class="string">'1'</span>
     );
-                                            </code></pre>
+                    </code></pre>
                 </div> 
 
             </section>
@@ -104,7 +104,7 @@
 
             <section class="section first-section">
                 <div class="text-content">
-                    <h1 class="title"> Setting up VS code connection and querying data</h1>
+                    <h1 class="title"> Setting up VS code connection and first query</h1>
                     <p>
 
                         With the data in a database and table format, I could run queries on the data in AWS. However, my aim was to be able to use it in my 
@@ -114,11 +114,147 @@
                         
                         To do this, I had to install the AWS toolkit and configure it to connect to my AWS account. 
                         This allowed me to run queries in VS code.
+
+                        <pre><code>
+SELECT * FROM medicaldatabase1.medical_table limit 15;
+                        </code></pre>
+                        Result:
+                           
                     </p>
-                    
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/First1.png" alt="Your Image" class="result-image1">
+                    </figure>
                 
                 </div>
             </section>
+
+            <!-- Shape Divider -->  
+            <div class="shape-divider"></div>
+
+            <section class="section first-section">
+                <div class="text-content">
+                    <h1 class="title"> Practice running SQL queries</h1>
+                    <p>
+                        Now for the actual bit of the project. I wanted to practice running SQL queries on the data. To do this 
+                        I tasked Chat GPT for 5 increasing difficult tasks to test myself (I did more, but I'm not writing them 
+                        all up, this takes forever!): <br><br><br><br>
+
+
+                        1:   Data Retrieval with Filtering and Sorting: <br><br>
+                        Retrieve patients with a diagnosis of Cancer and sort them by age in descending order. This task 
+                        combines filtering based on medical condition and sorting based on patient age, providing a good 
+                        opportunity to practice both aspects of SQL query construction. <br><br>
+
+                        <pre><code>
+FROM medicaldatabase1.medical_table
+WHERE medical_condition = 'Cancer'
+ORDER BY age DESC;
+                        </code></pre>
+                        Result:
+                           
+                    </p>
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/query1.png" alt="Your Image" class="result-image">
+                    </figure>
+
+
+                        2:   Aggregation: <br><br>
+                        Calculate the average age of all patients. Aggregation functions are fundamental to SQL, and 
+                        calculating averages is a common task. This task allows you to practice using the AVG function 
+                        and understanding basic statistical analysis. <br><br>
+
+                        <pre><code>
+SELECT AVG(age) AS average_age
+FROM medicaldatabase1.medical_table;
+                        </code></pre>
+                        Result:
+                           
+                    </p>
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/query2.png" alt="Your Image" class="result-image">
+                    </figure>
+
+                    <p>
+                        3:   Conditional Logic: <br><br>
+                        Identify patients who have a treatment status of 'Urgent' and 'Emergency' and have a diagnosis of Cancer. 
+                        Conditional logic allows you to filter data based on multiple criteria, and this task involves combining logical 
+                        conditions to retrieve specific subsets of patient data. <br><br>
+
+                        <pre><code>
+SELECT name,age, admissiontype, medicalcondition 
+FROM medicaldatabase1.medical_table
+WHERE admissiontype IN ('Emergency', 'Urgent')
+AND medicalcondition = 'Cancer'
+LIMIT 15;
+                        </code></pre>
+                        Result:
+                           
+                    </p>
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/query3.png" alt="Your Image" class="result-image">
+                    </figure>
+
+
+                        4:   Data Modification: <br><br>
+                        Retrieve the names, ages, and insurance providers of patients who have been diagnosed with Cancer or 
+                        Diabetes, have received an Urgent treatment, and are covered by either Aetna or Cigna insurance. 
+                        Sort the results by insurance provider and then by age in descending order. 
+                        <br><br>
+
+                        <pre><code>
+SELECT name, age, insuranceprovider
+FROM medicaldatabase1.medical_table
+WHERE (medicalcondition = 'Cancer' OR medicalcondition = 'Diabetes')
+AND admissiontype = 'Urgent'
+AND insuranceprovider IN ('Aetna', 'Cigna')
+ORDER BY insuranceprovider, age DESC;
+                        </code></pre>
+                        Result:
+                           
+                    </p>
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/query4.png" alt="Your Image" class="result-image">
+                    </figure>   
+                
+                    <p>
+                        5:   Join Operations:<br><br>
+                        Create a new table called patients_info with the following columns: id_patient, name, age, gender and bloodtype. 
+                        <br><br>
+
+                        <pre><code>
+CREATE EXTERNAL TABLE medicaldatabase1.patients_info (
+    id_patient INT,
+    name STRING,
+    age INT,
+    gender STRING,
+    bloodtype STRING,
+    medicalcondition STRING
+)
+LOCATION 's3://medicaltestdatatom/';
+
+
+INSERT INTO medicaldatabase1.patients_info (id_patient, name, age, gender, bloodtype, medicalcondition)
+SELECT ROW_NUMBER() OVER (ORDER BY name) AS id_patient, name, age, gender, bloodtype, medicalcondition
+FROM medicaldatabase1.medical_table;
+
+<span class="keyword">SELECT </span> *
+<span class="keyword">FROM</span> medicaldatabase1.patients_info
+<span class="keyword">WHERE</span> id_patient <span class="keyword">IS NOT NULL</span>
+<span class="keyword">limit</span> 15;
+                        </code></pre>
+                        Result:
+                           
+                    </p>
+                    <figure class="image-container">
+                        <img src="../../Images/Medical/query5.png" alt="Your Image" class="result-image">
+                    </figure>
+                    <p>
+                        This one was going to be a bit longer. Modifying the medical_table to replace the 
+                        patient data with patient_id. However, in the table type I was using in AWS this isnt a possible feature. 
+                    </p>
+                </div>
+            </section>
+
 
         </div>
     </main>
