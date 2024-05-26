@@ -8,7 +8,7 @@ body {
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 2.5%; /* Converted */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,13 +18,13 @@ nav {
     background-color: #444;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
+    padding: 1% 0; /* Converted */
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
-    padding: 0 20px;
+    padding: 0 1.67%; /* Converted */
 }
 
 nav a:hover {
@@ -32,33 +32,33 @@ nav a:hover {
 }
 
 main {
-    padding: 20px;
+    padding: 2.5%; /* Converted */
 }
 
 .container {
     max-width: 1200px;
-    margin: 50px auto 20px;
-    padding: 80px;
+    margin: 4.17% auto 1.67%; /* Converted */
+    padding: 6.67%; /* Converted */
 }
 
 h1 {
-    margin-bottom: 40px;
+    margin-bottom: 3.33%; /* Converted */
 }
 
 .project-section {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 3.33%; /* Converted */
 }
 
 .project-box {
     flex: 1;
     background-color: rgba(169, 169, 169, 0.5);
-    padding: 20px;
+    padding: 1.67%; /* Converted */
     border-radius: 5px;
     box-sizing: border-box;
-    margin-right: 20px;
-    margin-bottom: 50px;
+    margin-right: 1.67%; /* Converted */
+    margin-bottom: 4.17%; /* Converted */
     position: relative; 
     text-decoration: none;
     color: inherit;
@@ -72,8 +72,8 @@ h1 {
 .project-info h2 {
     flex: 1;
     position: absolute;
-    margin-left: 50px; 
-    top: 0px;
+    margin-left: 4.17%; /* Converted */
+    top: 0;
 }
 
 .project-image1 {
@@ -81,21 +81,20 @@ h1 {
     border-radius: 5px;
     overflow: hidden;
     position: absolute; 
-    bottom: -10px;       
-    right: 30px;        
-    width: 80px;
-    height: 80px;
+    bottom: -15%; /* Converted */      
+    right: 2.5%; /* Converted */       
+    width: 30%; /* Converted */
+    height: auto; /* Converted */
 }
-
 .project-image2 {
     max-width: 100%;
     border-radius: 5px;
     overflow: hidden;
     position: absolute; 
-    bottom: 10px;       
-    right: 30px;        
-    width: 100px;
-    height: auto;
+    bottom: 4%; /* Converted */      
+    right: 2.5%; /* Converted */       
+    width: 40%; /* Converted */
+    height: auto; /* Converted */
 }
 
 .project-image3 {
@@ -103,16 +102,16 @@ h1 {
     border-radius: 5px;
     overflow: hidden;
     position: absolute; 
-    bottom: 10px;       
-    right: 30px;        
-    width: 120px;
-    height: 30%;
+    bottom: 4%; /* Converted */      
+    right: 2.5%; /* Converted */       
+    width: 60%; /* Converted */
+    height: auto; /* Converted */
 }
 
 .single-project {
     display: block;
     background-color: rgba(169, 169, 169, 0.5);
-    padding: 20px;
+    padding: 1.67%; /* Converted */
     border-radius: 5px;
     box-sizing: border-box;
     width: 90%;
@@ -121,7 +120,6 @@ h1 {
     transition: background-color 0.3s;
     position: relative; 
     margin-left: 5%;
-
 }
 
 .single-project:hover {
@@ -131,18 +129,18 @@ h1 {
 .single-project-details {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 5%; /* Converted */
 }
 
 .single-project-info h2 {
     flex: 1;
     position: absolute;
-    margin-left: 50px; 
-    top: 0px;
+    margin-left: 5%; /* Converted */
+    top: 0;
 }
 
 .single-project-info p {
-    margin-top: 60px; 
+    margin-top: 5%; /* Converted */
 }
 
 .single-project-image4 {
@@ -150,8 +148,8 @@ h1 {
     border-radius: 5px;
     overflow: hidden;
     position: absolute; 
-    top: 10px;       
-    left: 10px;        
-    width: 50px;
-    height: 50px;
+    top: 5%; /* Converted */
+    left: 1%; /* Converted */
+    width: 5%; /* Converted */
+    height: auto; /* Converted */
 }
