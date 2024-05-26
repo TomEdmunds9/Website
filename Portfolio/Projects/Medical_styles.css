@@ -155,3 +155,46 @@ figcaption {
     height: auto;
     margin: 0px 0;
 }
+
+/* General styling for the pre and code tags */
+pre {
+    background-color: #2d2d2d; /* Dark background */
+    color: #f8f8f2; /* Light text color */
+    padding: 20px; /* Padding around the code block */
+    border-radius: 8px; /* Rounded corners */
+    overflow-x: auto; /* Horizontal scrolling if needed */
+    margin: 20px auto; /* Margin above and below the code block */
+    width: 80%;
+    
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
+    font-size: 12x; /* Font size */
+    line-height: 1.2; 
+}
+
+/* Syntax highlighting for different elements */
+code .keyword {
+    color: #66d9ef; /* Light blue */    
+}
+
+code .string {
+    color: #a6e22e; /* Green */
+}
+
+code .number {
+    color: #ae81ff; /* Purple */
+}
+
+code .comment {
+    color: #75715e; /* Grey */
+}
+
+code .function {
+    color: #fd971f; /* Orange */
+}
+
+code .variable {
+    color: #f8f8f2; /* Default text color */
+}

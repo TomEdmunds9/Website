@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thomas Edmunds</title>
-    <link rel="stylesheet" href="HGV_styles.css">
+    <link rel="stylesheet" href="Medical_styles.css">
 </head>
 <body>
     <header>
@@ -20,58 +20,107 @@
         <div class="container">
             <!-- First Section -->
             <section class="section first-section">
-                
                 <div class="text-content">
-                    <h1 class="title">Learning how to use SQL to retrive data from AWS</h1>
-                    <p> This project is focusing on developing basic skills using SQL on AWS. In this project I learned a few interesting skills: 
-                        <br>  
-                        <ol>
-                            <li>How to create a database on AWS</li>
-                            <li>How to create a table in a database</li>
-                            <li>How to insert data into a table</li>
-                            <li>How to query in Athena and from VS code</li>
-                            <li>How to delete data from a table</li>
-                            <li>How to delete a table from a database</li>
-                            <li>How to delete a database</li>
-                        </ol>
-                        <br>
-
-                        During my experimentation with AWS I looked into the AWS Machine learning functionality. 
-                        So using the data I 
-                    </p>
+                    <h1 class="title">Learning how to use SQL to retrieve data from AWS</h1>
+                    <p>This project is focusing on developing basic skills using SQL on AWS. In this project I learned a few interesting skills:</p>
+                    <ol>
+                        <li>How to create a database on AWS</li>
+                        <li>How to create a table in a database</li>
+                        <li>How to insert data into a table</li>
+                        <li>How to query in Athena and from VS code</li>
+                        <li>How to delete data from a table</li>
+                        <li>And many other related skills...</li>
+                    </ol>
+                    <p>During my experimentation with AWS, I looked into the AWS Machine learning functionality. In AWS I created a ML model to predict 
+                        the costs of treatments for patients. The model was trained on a dataset on the same.</p>
+                    
+                
                 </div>
             </section>
     
             <!-- Shape Divider -->
             <div class="shape-divider"></div>
-    
-            <!-- Second Section -->
-            <section class="section second-section">
-                <figure>
-                    <img src="../../Images/HGV/image.png" alt="Portrait Image" class="second-section-image">
-                    <figcaption> Figure 1 <br> Locations of all the motorway services in British along key motorways and A-roads with .</figcaption>
-                </figure>
-                
+
+
+
+
+            <!-- section on AWS setup -->
+            <section class="section first-section">
                 <div class="text-content">
-                    <h2 class="section-title">Exploratory Data Analytics</h2>
+                    <h1 class="title">Setting up the table in AWS</h1>
+                    <p> 
+                        Learning the basics of AWS was very interesting and I am excited to challenge myself further.<br><br>
+                        
+                        First, I had to upload the data to AWS. Given I was avoiding spending money. I opted to use S3. I created 
+                        the necessary buckets and uploaded my data.<br><br>
+
+                        To create the table in AWS, I used the Athena service. Here, I ran into an issue. I initially tried to use 
+                        AWS Glue Crawler to create the table. However one column had issues, not picking up all values. To fix this 
+                        I used an SQL query to create the table.
+
+                        <br><br>
+                                                
+                        So I added a table, specifying the data types for each column, and the starting and ending properties needed. This code when run fixed the missing value problem. 
+
+                    </p>
+                    <pre><code>
+    <span class="keyword">CREATE EXTERNAL TABLE</span> medicaldatabase1.medical_table (
+        name <span class="keyword">STRING</span>,
+        age <span class="keyword">BIGINT</span>,
+        gender <span class="keyword">STRING</span>,
+        bloodtype <span class="keyword">STRING</span>,
+        medicalcondition <span class="keyword">STRING</span>,
+        date_admission <span class="keyword">STRING</span>,
+        doctor <span class="keyword">STRING</span>,
+        hospital <span class="keyword">STRING</span>,
+        insuranceprovider <span class="keyword">STRING</span>,
+        billingamount <span class="keyword">DOUBLE</span>,
+        roomnumber <span class="keyword">INT</span>,
+        admissiontype <span class="keyword">STRING</span>,
+        date_discharge <span class="keyword">STRING</span>,
+        medication <span class="keyword">STRING</span>,
+        testresults <span class="keyword">STRING</span>
+    )
+    <span class="keyword">ROW FORMAT</span> SERDE 'org.apache.hadoop.hive.serde2.OpenCSVSerde'
+    <span class="keyword">WITH SERDEPROPERTIES</span> (
+        <span class="string">"separatorChar"</span> = <span class="string">","</span>,
+        <span class="string">"quoteChar"</span> = <span class="string">"\""</span>
+    )
+    <span class="keyword">STORED AS</span> TEXTFILE
+    <span class="keyword">LOCATION</span> <span class="string">'s3://medicaltestdatatom/'</span>
+    <span class="keyword">TBLPROPERTIES</span> (
+        <span class="string">'has_encrypted_data'</span>=<span class="string">'false'</span>,
+        <span class="string">'skip.header.line.count'</span>=<span class="string">'1'</span>
+    );
+                                            </code></pre>
+                </div> 
+
+            </section>
+
+
+
+            <!-- Shape Divider -->  
+            <div class="shape-divider"></div>
+
+            <section class="section first-section">
+                <div class="text-content">
+                    <h1 class="title"> Setting up VS code connection and querying data</h1>
                     <p>
-                        ... <br><br>
-                        
 
-                    </p>
-                    <figure>
-                        <img src="../../Images/HGV/image.png" alt="Landscape Image" class="second-landscape-image">
-                        <figcaption>Figure 2 <br>Distribution of goods lifted and distance hauled across the UK.</figcaption>
-                    </figure>
-                    
-                    <p> ...
+                        With the data in a database and table format, I could run queries on the data in AWS. However, my aim was to be able to use it in my 
+                        standard text editor, VS code.
                         
+                        <br><br>
+                        
+                        To do this, I had to install the AWS toolkit and configure it to connect to my AWS account. 
+                        This allowed me to run queries in VS code.
                     </p>
-
                     
+                
                 </div>
             </section>
-            
+
+        </div>
     </main>
 </body>
 </html>
