@@ -116,7 +116,7 @@
                         This allowed me to run queries in VS code.
 
                         <pre><code>
-SELECT * FROM medicaldatabase1.medical_table limit 15;
+<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> medicaldatabase1.medical_table <span class="keyword">LIMIT</span> 15;
                         </code></pre>
                         Result:
                            
@@ -146,9 +146,9 @@ SELECT * FROM medicaldatabase1.medical_table limit 15;
                         opportunity to practice both aspects of SQL query construction. <br><br>
 
                         <pre><code>
-FROM medicaldatabase1.medical_table
-WHERE medical_condition = 'Cancer'
-ORDER BY age DESC;
+<span class="keyword">FROM</span> medicaldatabase1.medical_table
+<span class="keyword">WHERE</span> medical_condition = <span class= "string">'Cancer'</span>
+<span class="keyword">ORDER BY</span> age <span class="keyword">DESC</span>;
                         </code></pre>
                         Result:
                            
@@ -164,8 +164,8 @@ ORDER BY age DESC;
                         and understanding basic statistical analysis. <br><br>
 
                         <pre><code>
-SELECT AVG(age) AS average_age
-FROM medicaldatabase1.medical_table;
+<span class="keyword">SELECT AVG</span>(age) <span class="keyword">AS</span> average_age
+<span class="keyword">FROM</span> medicaldatabase1.medical_table;
                         </code></pre>
                         Result:
                            
@@ -181,17 +181,17 @@ FROM medicaldatabase1.medical_table;
                         conditions to retrieve specific subsets of patient data. <br><br>
 
                         <pre><code>
-SELECT name,age, admissiontype, medicalcondition 
-FROM medicaldatabase1.medical_table
-WHERE admissiontype IN ('Emergency', 'Urgent')
-AND medicalcondition = 'Cancer'
-LIMIT 15;
+<span class="keyword">SELECT</span> name,age, admissiontype, medicalcondition 
+<span class="keyword">FROM</span> medicaldatabase1.medical_table
+<span class="keyword">WHERE</span> admissiontype <span class="keyword">IN</span> (<span class="string">'Emergency', 'Urgent'</span>)
+<span class="keyword">AND</span> medicalcondition = <span class="string">'Cancer'</span>
+<span class="keyword">LIMIT</span> 15;
                         </code></pre>
                         Result:
                            
                     </p>
                     <figure class="image-container">
-                        <img src="../../Images/Medical/query3.png" alt="Your Image" class="result-image">
+                        <img src="../../Images/Medical/query3.png" alt="Your Imag   e" class="result-image">
                     </figure>
 
 
@@ -202,12 +202,12 @@ LIMIT 15;
                         <br><br>
 
                         <pre><code>
-SELECT name, age, insuranceprovider
-FROM medicaldatabase1.medical_table
-WHERE (medicalcondition = 'Cancer' OR medicalcondition = 'Diabetes')
-AND admissiontype = 'Urgent'
-AND insuranceprovider IN ('Aetna', 'Cigna')
-ORDER BY insuranceprovider, age DESC;
+<span class="keyword">SELECT</span> name, age, insuranceprovider
+<span class="keyword">FROM</span> medicaldatabase1.medical_table
+<span class="keyword">WHERE</span> (medicalcondition = <span class="string">'Cancer'</span> <span class="keyword">OR</span> medicalcondition = <span class="string">'Diabetes'</span>)
+<span class="keyword">AND</span> admissiontype = <span class="string">'Urgent'</span>
+<span class="keyword">AND</span> insuranceprovider <span class="keyword">IN</span> (<span class="string">'Aetna'</span>, <span class="string">'Cigna'</span>)
+<span class="keyword">ORDER BY</span> insuranceprovider, age <span class="keyword">DESC</span>;
                         </code></pre>
                         Result:
                            
@@ -222,20 +222,20 @@ ORDER BY insuranceprovider, age DESC;
                         <br><br>
 
                         <pre><code>
-CREATE EXTERNAL TABLE medicaldatabase1.patients_info (
-    id_patient INT,
-    name STRING,
-    age INT,
-    gender STRING,
-    bloodtype STRING,
-    medicalcondition STRING
+<span class="keyword">CREATE EXTERNAL TABLE</span> medicaldatabase1.patients_info (
+    id_patient <span class="keyword">INT</span>,
+    name <span class="keyword">STRING</span>,
+    age <span class="keyword">INT</span>,
+    gender <span class="keyword">STRING</span>,
+    bloodtype <span class="keyword">STRING</span>,
+    medicalcondition <span class="keyword">STRING</span>
 )
-LOCATION 's3://medicaltestdatatom/';
+<span class="keyword">LOCATION</span> <span class="string">'s3://medicaltestdatatom/'</span>;
 
 
-INSERT INTO medicaldatabase1.patients_info (id_patient, name, age, gender, bloodtype, medicalcondition)
-SELECT ROW_NUMBER() OVER (ORDER BY name) AS id_patient, name, age, gender, bloodtype, medicalcondition
-FROM medicaldatabase1.medical_table;
+<span class="keyword">INSERT INTO</span> medicaldatabase1.patients_info (id_patient, name, age, gender, bloodtype, medicalcondition)
+<span class="keyword">SELECT ROW_NUMBER() OVER</span> (<span class="keyword">ORDER BY</span> name) <span class="keyword">AS</span> id_patient, name, age, gender, bloodtype, medicalcondition
+<span class="keyword">FROM</span> medicaldatabase1.medical_table;
 
 <span class="keyword">SELECT </span> *
 <span class="keyword">FROM</span> medicaldatabase1.patients_info
@@ -255,7 +255,26 @@ FROM medicaldatabase1.medical_table;
                 </div>
             </section>
 
+            <!-- Shape Divider -->
+            <div class="shape-divider"></div>
 
+            <section class="section first-section">
+                <div class="text-content">
+                    <h1 class="title">Learning AWS SageMaker Fundamantals</h1>
+                    <p>
+                        This part of the project is focusing on developing basic skills of Sagemaker to create a Linear Regression and an XG Boost model to predict costs.
+                        
+                        <br><br>
+
+                        
+
+                    </p>
+                    
+                
+                </div>
+            </section>
+    
+            
         </div>
     </main>
 </body>
