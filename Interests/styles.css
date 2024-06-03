@@ -33,3 +33,43 @@ nav a:hover {
 main {
     padding: 20px;
 }
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.about-me {
+    max-width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-me h1,
+.about-me h2 {
+    color: #333;
+}
+
+.about-me p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
