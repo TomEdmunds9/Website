@@ -20,33 +20,25 @@
         <div class="container">
             <!-- First Section -->
             <section class="section first-section">
-                
                 <div class="text-content">
                     <h1 class="title">Alternative (better) method to improve public buildings in the UK</h1>
                     <p> 
-                        This paper would like to present the analysis for an alternative method of increasing the energy performance 
-                        of public buildings in England and Wales. Instead of providing large funding packages to specific institutions, 
-                        a programme of common changes will be made to all public buildings across the country, where applicable by Display 
-                        Energy Certificate (DEC) recommendations. This plan will focus on selecting the common changes which can be implemented 
-                        quickly for high CO2 reduction. 
+                        This paper presents an analysis of an alternative method for increasing the energy performance of public buildings in England and Wales. Instead of providing large funding packages to specific institutions, a program of common changes will be implemented across all public buildings in the country, where applicable, based on Display Energy Certificate (DEC) recommendations. This plan focuses on selecting common changes that can be quickly implemented for high CO2 reduction.
                         
                         <br><br>
 
-                        The DEC shows the energy performance of a building based on actual energy consumption as recorded over the last 12 months. 
-                        It applies to any building with more than 250m^2 of usable floor space that is occupied in whole or part by public authorities 
-                        and frequently visited by the public.
+                        The DEC shows the energy performance of a building based on actual energy consumption recorded over the last 12 months. It applies to any building with more than 250m² of usable floor space that is occupied in whole or in part by public authorities and frequently visited by the public.
 
                         <br><br>
-                        By analysing the DEC rating data from the UK Government Department of levelling up, housing and communities 
-                        (epc.opendatacommunities.org, 2024) this paper aims to:
+                        By analyzing the DEC rating data from the UK Government Department of Levelling Up, Housing and Communities 
+                        (epc.opendatacommunities.org, 2024), this paper aims to:
 
-                    	<li>Provide an overview of the state of public buildings energy efficiency in England and Wales.</li>
+                        <li>Provide an overview of the state of public buildings' energy efficiency in England and Wales.</li>
                         <li>Determine which of the suggested improvements government action should focus on.</li>
 
                         <br>
-                        Note: This is a highly condensed form of the project, If you are interested I will happily talk about it in more detail. 
-                        I have not fully explained the assumptions, but they are well grounded.
-                    
+                        Note: This is a highly condensed form of the project. If you are interested, I will happily discuss it in more detail. 
+                        I have not fully explained the assumptions, but they are well-grounded.
                     </p>
                 </div>
             </section>
@@ -56,51 +48,290 @@
     
             <!-- Second Section -->
             <section class="section second-section">
-                                
-                <div class="text-content">
-                    <h2 class="section-title">Method</h2>
-                    <p>
-                        Due to the vast number of suggestions, this paper only considers suggestions that had a ‘high’ 
-                        CO2 impact ranking with a short payback time, either labelled as short or other in the original data. 
-                        A total of 166,987 suggestions to examine.
-                        
-                        <br><br>
+                <div class="flex-container">
+                    <div class="text-content1">
+                        <h2 class="section-title">Method</h2>
+                        <p>
+                            Due to the vast number of suggestions, this paper only considers those that had a ‘high’ 
+                            CO2 impact ranking with a short payback time, either labeled as short or other in the original data. 
+                            A total of 166,987 suggestions were examined.
+                            
+                            <br><br>
 
-                        The recommendations were either a preset recommendation or a custom suggestion by the inspector. <strong>Figure 1</strong> 
-                        shows a graph the top 16 recommendation codes used by inspectors, with full list in Table 1.  
-                        Importantly, there were around 60,000 custom suggestions along with 60 different preset recommendations. 
-                        
-                        
-                    </p>
-                    
-                    
-                
-                                    
+                            The recommendations were either preset or custom suggestions by the inspector. <strong>Figure 1</strong> 
+                            shows a graph of the top 16 recommendation codes used by inspectors, with the full list in Table 1.  
+                            Importantly, there were around 60,000 custom suggestions along with 60 different preset recommendations. 
+                        </p>
+                    </div>
+                    <div class="image-container1">
+                        <img src="../../Images/Buildings/fig13.png" alt="Figure 1">
+                        <div class="image-caption">Figure 1</div>
+                    </div>
                 </div>
-            
-            <img src="../../Images/Buildings/fig2.png" alt="Landscape Image" class="second-section-image">
-            
             </section>
-            
-        
 
+            <div class="image-container3">
+                <img src="../../Images/Buildings/fig12.png" alt="Figure 2">
+                <div class="image-caption">Figure 2</div>
+            </div>
+            
             <!-- Third Section -->
             <section class="section third-section">
-                <div class="text-content">
-                    <p> 
-                        ... more text
-                    </p>
+                <div class="flex-container">
+                    <div class="image-container2">
+                        <img src="../../Images/Buildings/fig11.png" alt="Figure 3">
+                        <div class="image-caption">Figure 3</div>
+                    </div>
+                    <div class="text-content2">
+                        <p> 
+                            The data labeled “None” was sorted using a basic keyword search algorithm, starting with highly 
+                            specific words and getting more general. Each suggestion was categorized until keywords were no 
+                            longer able to capture the underlying meaning of the suggestions. An example of keyword 
+                            generalization is shown in <strong>Figure 2</strong>. This keyword search method was able 
+                            to effectively sort 97.6% of the data. 
+                            <br><br>
+                            The keyword classification is a hierarchical clustering method, completed as follows:
+                            <ol>
+                                <li>Clean the dataset
+                                    <ul>
+                                        <li>Set all words to lowercase.</li>
+                                        <li>Remove filler words such as “the”, “and”, and “it”.</li>
+                                        <li>Remove all punctuation and special characters.</li>
+                                    </ul>
+                                </li>
+                                <li>Run an algorithm to determine the most common words in the entire dataset.
+                                    <ul>
+                                        <li>Only select words with high repetition and maximum uniqueness (e.g. “fluorescent”).</li>
+                                    </ul>
+                                </li>
+                                <li>Use a hierarchical clustering method.</li>
+                                <li>Rerun the common word algorithm, this time for two words.</li>
+                                <li>Repeat steps 3 and 4 for increasingly longer strings of words until the dataset is fully 
+                                    categorized.</li>
+                            </ol>
+                            The main weakness of keyword classification is context. Due to low levels of accuracy with 
+                            established models such as sklearn.cluster and the relatively few keywords able to classify 
+                            the entire dataset, this was completed manually. 
 
-                    
+                            <br><br>
+                            To check that the keywords were not sorted inappropriately, a spot test of 100 random 
+                            categorisations was examined to establish confidence. The first few attempts returned many 
+                            incorrect categorizations. However, with adaptation of the keyword list, errors were reduced 
+                            until 95% accuracy was returned in three consecutive spot tests. 
+                        </p>
+                    </div>
                 </div>
-               
-                <img src="../../Images/Buildings/fig3.png" alt="Portrait Image" class="third-section-image">         
-            
             </section>
-        </div>  
+
+            <section class="section second-section">
+                <div class="text-content1">
+                        <p>
+                            <strong>Figure 3</strong> shows a density map of the public buildings in England and Wales. 
+                            They mainly correlate with the locations of British cities. However, there is clear 
+                            clustering visible. Tackling the similar faults of these clustered buildings is the 
+                            aim of this project.
+                        </p>
+                    </div>
+                   
+            </section>
+
+            <!-- Shape Divider -->
+            <div class="shape-divider"></div>
+
+
+            <!-- Section on EDA -->
+            <section class="section second-section">
+                <div class="flex-container">
+                    <div class="text-content1">
+                        <h2 class="section-title">EDA</h2>
+                        <p>
+                            Due to the vast number of suggestions, this paper only considers those that had a ‘high’ 
+                            CO2 impact ranking with a short payback time, either labeled as short or other in the original data. 
+                            A total of 166,987 suggestions were examined. To better understand the data and what that means for 
+                            UK public building stock, the data was visualised.
+                            
+                            
+                            <br><br>
+
+                            <strong>Figure 4</strong> shows the types of building that was examined. Schools are the most 
+                            common by far, followed by public sector workplaces. This was expanded on in <strong>Figure 5</strong>, 
+                            which shows the floor area of each type of building. The graph shows most buildings are under 2500 square 
+                            feet, but in each case, there is a significant number of buildings over 5500 square feet. 
+
+                            <br><br>
+
+                            
+                            Given that operational rating for DEC buildings is given based on measured energy usage readings, 
+                            the letter rating grade can be used to determine improvement. <strong>Figure 6</strong>  shows the percentage of 
+                            ratings given in each band each year, since 2006.  There is a consistent increase in each letter 
+                            grade with the exception of A over the last 2 decades, showing a slow and steady increase. 
+
+                            <br><br>
+
+                            The A rating seems to be unused. However, this isn’t an issue since it provides an unreached target 
+                            for almost all buildings to encourage improvement. 
+                            <br><br>
+                            
+                            More concerning is the instability in the grading system since 2020. There were likely little to no 
+                            improvements made to the buildings during the covid lockdown. However, there was a sharp growth in 
+                            2020 and 2021. This could be explained to a sharp reduction in power consumption in schools and 
+                            offices due to the lockdowns. Leading to the following decrease in 2022, as adults returned to work 
+                            and students to school. 
+
+                            </p>
+                    </div>
+                    <div class="image-container1">
+                        <img src="../../Images/Buildings/fig3.png" alt="Figure 1">
+                        <div class="image-caption">Figure 4</div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="section two-images-section">
+                <div class="image-pair-container">
+                    <div class="image-container4">
+                        <img src="../../Images/Buildings/fig4.png" alt="Image 1">
+                        <div class="image-caption">Figure 5</div>
+                    </div>
+                    <div class="image-container5">
+                        <img src="../../Images/Buildings/fig5.png" alt="Image 2">
+                        <div class="image-caption">Figure 6</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section second-section">
+                <div class="text-content1">
+                        
+                        <p>
+                            <strong>Figure 7</strong> and  <strong>Figure 8</strong> shows the latest recording of each building by grade. Overall, 
+                            there is a fairly even spread of grades, forming a normal distribution as expected. Sports 
+                            centres achieve a higher percentage of A and B grades than most, with hospitals performing 
+                            poorly overall. This may be due to the private sector influence in sports centres. 
+                        </p>
+                    </div>
+                
+            </section>
+
+            <section class="section two-images-section">
+                <div class="image-pair-container">
+                    <div class="image-container4">
+                        <img src="../../Images/Buildings/fig6.png" alt="Image 1">
+                        <div class="image-caption">Figure 7</div>
+                    </div>
+                    <div class="image-container6">
+                        <img src="../../Images/Buildings/fig7.png" alt="Image 2">
+                        <div class="image-caption">Figure 8</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section second-section">
+                <div class="flex-container">
+                    <div class="text-content1">
+                        <h2 class="section-title">Results</h2>
+                        <p>
+                            <strong>Figure 9</strong> shows the keyword clustering of the inspector recommendations since 2006.                       
+                            When it comes to public buildings inspectors recommend staff training above all else. 
+                            Automation and timing devices had an unexpectedly large impact. With nearly 25,000 recommendations 
+                            the number of applications for reducing load by powering off electronics is a common and clearly 
+                            understated problem.
+
+                            <br><br>
+                            What is interesting to see from the results is the prevalence of hardware issues. Upgrading lighting, 
+                            insulation and hot water systems each have a noticeable upfront cost but short payback times to 
+                            permanently reduce energy usage in a building. 
+
+
+                        </p>
+                    </div>
+                    <div class="image-container10">
+                        <img src="../../Images/Buildings/fig8.png" alt="Figure 1">
+                        <div class="image-caption">Figure 9</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section second-section">
+                <div class="text-content1">
+                        
+                        <p>
+                            
+                            <strong>Figure 10</strong> shows the first layer of hierarchical clustering. Here the clear preference of inspectors 
+                            is to place an individual as an energy champion. 
+
+                            <br><br>
+                            Derbyshire county defines an energy champion as “a voluntary role to promote and encourage energy 
+                            efficiency with work colleagues and to assist in implementing energy saving initiatives.”
+
+                            <br><br>
+                            This fundamental role, ensuring one person is responsible for organising and coordinating 
+                            improvements is key and clearly lacking in many public buildings across the UK with 16,000 sites 
+                            recommended the addition of this role.
+
+                            <br><br>
+
+                            The category Educate Users focuses on users of a building, e.g. students or members of the public. 
+                            This is likely harder to achieve as incentives are harder to implement.  
+
+                            <br><br>
+
+
+                            The surprise result was the number of references to staff ventilating the building. A further 
+                            examination suggests the aims here are in reducing fan usage and reducing air-conditioner use. 
+                            Either by controlling the technology better, or by utilising external air to cool the building.
+
+                            <br><br>
+
+                            When looking at Automation and timing tools technology, <strong>Figure 11</strong>. All suggestions are focused on reducing 
+                            wastage. Most focus on automatically turning off heating when the building is empty. This is 
+                            partially worrying as this technology is old and well proven for reducing bills. 
+
+                            <br><br>
+                            
+                            Unspecified automation involved many different types of equipment from catering to clay kilns, 
+                            this cluster did not specify occupancy and may be able to be turned off more than just during 
+                            evenings. The sheer variety in this cluster will prove the most challenging to fix. However, the 
+                            principle is clear. When paired with reduce usage during non-occupancy and lighting it is clear 
+                            that funding for these issues is a clear priority. 
+
+
+                        </p>
+                    </div>
+                
+            </section>
+
+            <section class="section two-images-section">
+                <div class="image-pair-container1">
+                    <div class="image-container7">
+                        <img src="../../Images/Buildings/fig9.png" alt="Image 1">
+                        <div class="image-caption">Figure 10</div>
+                    </div>
+                    <div class="image-container8">
+                        <img src="../../Images/Buildings/fig10.png" alt="Image 2">
+                        <div class="image-caption">Figure 11</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section second-section">
+                <div class="text-content1">
+                    <h2 class="section-title"> Still to be done: </h2>
+                        <p>
+                        This project has merit and I want to continue it beyond the scope of the university project.
+                        
+
+                        I would like to look into Hammersmith and Fulham councils public buildings (my area) 
+                        and see if there are any common issues that can be fixed. 
+
+                        This will have to wait until I have made progress with my disseration.
+
+                        </p>
+                    </div>
 
             
-            
+        </div>  
     </main>
 </body>
 </html>

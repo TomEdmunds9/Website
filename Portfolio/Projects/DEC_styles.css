@@ -36,9 +36,7 @@ nav a:hover {
 }
 
 .section {
-    display: flex;
-    flex-direction: column;
-    margin: 0px 0;
+    margin: 20px 0;
 }
 
 .first-section h1 {
@@ -52,12 +50,14 @@ nav a:hover {
     height: auto;
 }
 
-.text-content {
-    flex-grow: 1;
+.text-content1 {
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    
+    flex: 0 0 40%;
+}
+
+.text-content2 {
+    padding: 20px;
+    flex: 0 0 40%;
 }
 
 .title {
@@ -72,10 +72,117 @@ nav a:hover {
     margin-top: 20px;
 }
 
-
-
 .shape-divider {
     height: 40px;
     background-color: #f0f0f0;
     margin: 0px 0;
 }
+
+.image-container {
+    display: flex;
+    align-items: center;
+}
+
+.image-container1 img {
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 50%;
+    padding: 20px;
+}
+
+.image-container2 img {
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 60%;
+    padding: 20px;
+}
+
+.image-container3 {
+    
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    width: 100%; 
+    height: auto; 
+    padding-top: 3%;
+}
+
+.image-container3 img {
+    max-width: 100%;
+    height: auto;
+    margin-left: 15%;
+    
+}
+
+.image-caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 10px;
+    flex: 0 0 100%;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.third-section .text-content {
+    order: 2;
+    flex: 0 0 60%;
+}
+
+
+.image-pair-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container4 {
+    flex: 0 0 48%;
+    text-align: center;
+}
+
+.image-container4 img {
+    max-width: 100%;
+    height: auto;
+}
+.image-container5 img {
+    max-width: 100%;
+    margin-bottom: 30px;
+    height: auto;
+}
+.image-container6 img {
+    max-width: 100%;
+    margin-bottom: 60px;
+    height: auto;
+}
+
+
+.image-container10 img {
+    max-width: 100%;
+    height: auto;
+    flex: 0 0 50%;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+
+.image-pair-container1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container7 {
+    flex: 0 0 53%;
+    text-align: center;
+}
+
+.image-container7 img {
+    max-width: 100%;
+    height: auto;
+}
+.image-container8 img {
+    max-width: 100%;
+    margin-bottom: 40px;
+    height: auto;}
